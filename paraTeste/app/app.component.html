@@ -1,0 +1,33 @@
+<input type="file" class="file-input" (change)="pegarArquivo($event)"  #fileUpload>
+
+<div class="file-upload">
+
+  {{fileName || "Sem Arquivo"}}
+
+  <button class="btn btn-primary"
+    (click)="fileUpload.click()">teste
+  </button>
+</div>
+
+<section class="ml-3">
+  <div class="row btn-primary mb-1">
+    <div class="col">{{headers[0]}}</div>
+    <div class="col">{{headers[1]}}</div>
+    <div class="col">{{headers[2]}}</div>
+    <div class="col"></div>
+  </div>
+  <div *ngFor="let filho of filhos">
+    <div class="row alert-primary mb-1">
+      <div class="col">{{filho.id}}</div>
+      <div class="col">{{filho.nome}}</div>
+      <div class="col">{{filho.dataNacimento}}</div>
+      <div class="col">
+        <button class="btn btn-primary" [routerLink]="['visu',filho.id]">Visualizar</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<router-outlet></router-outlet>
